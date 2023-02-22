@@ -41,8 +41,13 @@ abstract class Contact {
         lastEdit = LocalDateTime.now();
     }
 
-    public String info() {
-        return "\nNumber: " + number + "\nTime created: " + createTime + "\nTime last edit: " + lastEdit;
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "number='" + number + '\'' +
+                ", createTime=" + createTime +
+                ", lastEdit=" + lastEdit +
+                '}';
     }
 
     abstract public String fields();
@@ -67,12 +72,13 @@ class Organization extends Contact {
 
     @Override
     public String toString() {
-        return name + " " + address;
-    }
-
-    @Override
-    public String info() {
-        return "Organization name: " + name + "\nAddress: " + address + super.info();
+        return "Organization{" +
+                "address='" + address + '\'' +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", createTime=" + createTime +
+                ", lastEdit=" + lastEdit +
+                '}';
     }
 
     @Override
@@ -120,12 +126,15 @@ class Person extends Contact {
 
     @Override
     public String toString() {
-        return name + " " + surname;
-    }
-
-    @Override
-    public String info() {
-        return "Name: " + name + "\nSurname: " + surname + "\nBirth date: " + birthDate + "\nGender: " + gender + super.info();
+        return "Person{" +
+                "surname='" + surname + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", gender='" + gender + '\'' +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", createTime=" + createTime +
+                ", lastEdit=" + lastEdit +
+                '}';
     }
 
     @Override
@@ -203,7 +212,7 @@ class ContactBook {
     }
 
     public void info(int n) {
-        System.out.println(data.get(n).info());
+        System.out.println(data.get(n).toString());
     }
 
     public ArrayList<Integer> search(String part) {
