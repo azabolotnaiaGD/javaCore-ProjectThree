@@ -212,7 +212,7 @@ class ContactBook {
     }
 
     public void info(int n) {
-        System.out.println(data.get(n).toString());
+        System.out.println(data.get(n));
     }
 
     public ArrayList<Integer> search(String part) {
